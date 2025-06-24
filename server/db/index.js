@@ -105,6 +105,68 @@ const seed = async () => {
       comment: "We got a second one because it works for my crazy toddler.",
       rating: 5,
     }),
+    createReview({
+      product_id: annodized_metal_chair.id,
+      user_id: frankie.id,
+      comment:
+        "When I look at this chair I see another cat staring back at me.  He must be stuck in the matrix.",
+      rating: 2,
+    }),
+    createReview({
+      product_id: unfinished_wood_table.id,
+      user_id: grimlock.id,
+      comment: "I love sleeping on this table.",
+      rating: 5,
+    }),
+    createReview({
+      product_id: unfinished_wood_table.id,
+      user_id: david.id,
+      comment: "Good table.",
+      rating: 4,
+    }),
+    createReview({
+      product_id: unfinished_wood_table.id,
+      user_id: evan.id,
+      comment: "Good table, but I need one that's kid size.",
+      rating: 3,
+    }),
+    createReview({
+      product_id: clear_glass_vase.id,
+      user_id: evan.id,
+      comment: "I broke this almost immediately.  Should be stronger.",
+      rating: 3,
+    }),
+    createReview({
+      product_id: clear_glass_vase.id,
+      user_id: chelsea.id,
+      comment:
+        "Beautiful, until my toddler saw it.  Then immediately threw it.",
+      rating: 3,
+    }),
+    createReview({
+      product_id: clear_tulip_glass_vase.id,
+      user_id: chelsea.id,
+      comment: "Beautiful, just keep it where toddlers can't reach.",
+      rating: 3,
+    }),
+    createReview({
+      product_id: clear_tulip_glass_vase.id,
+      user_id: david.id,
+      comment: "Bought for my wife. She is pleased.",
+      rating: 4,
+    }),
+    createReview({
+      product_id: clear_tulip_glass_vase.id,
+      user_id: frankie.id,
+      comment: "I like to eat the flowers.",
+      rating: 5,
+    }),
+    createReview({
+      product_id: clear_tulip_glass_vase.id,
+      user_id: evan.id,
+      comment: "So pretty, I can't wait to break it.",
+      rating: 2,
+    }),
   ]);
 };
 
@@ -112,11 +174,3 @@ module.exports = {
   client,
   seed,
 };
-
-// id UUID PRIMARY KEY,
-// product_id UUID REFERENCES products(id) NOT NULL,
-// user_id UUID REFERENCES users(id) NOT NULL,
-// CONSTRAINT product_and_user_id UNIQUE(product_id, user_id),
-// comment VARCHAR(255) NOT NULL,
-// rating INTEGER NOT NULL
-// CONSTRAINT rating_btwn_1_and_5 CHECK(rating BETWEEN 1 AND 5)
