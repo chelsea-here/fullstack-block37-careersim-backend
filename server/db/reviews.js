@@ -4,7 +4,7 @@ const uuidv4 = v4;
 
 const createReview = async (review) => {
   const SQL = `
-    INSERT INTO products(id, product_id, user_id, comment, rating)
+    INSERT INTO reviews(id, product_id, user_id, comment, rating)
     VALUES ($1, $2, $3, $4, $5)
     RETURNING *
     `;

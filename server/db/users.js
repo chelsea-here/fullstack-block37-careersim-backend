@@ -4,10 +4,10 @@ const { v4 } = require("uuid");
 const uuidv4 = v4;
 
 const createUser = async (user) => {
-  // if(!user.username.trim() || !user.password.trim()){
-  //       throw Error('must have username and password')
-  //   }
-  //   user.password = await bcrypt.hash(user.password, 5)
+  if (!user.username.trim() || !user.password.trim()) {
+    throw Error("must have username and password");
+  }
+  user.password = await bcrypt.hash(user.password, 5);
   const SQL = `
     INSERT INTO users(id, username, password)
     VALUES ($1, $2, $3)

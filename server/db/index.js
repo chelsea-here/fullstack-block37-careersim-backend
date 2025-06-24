@@ -80,31 +80,31 @@ const seed = async () => {
       comment: "The paint was chipping on this chair.",
       rating: 1,
     }),
-    // createReview({
-    //   product_id: annodized_metal_chair.id,
-    //   user_id: david.id,
-    //   comment: "Loved the shiny finish on this chair.",
-    //   rating: 5,
-    // }),
-    // createReview({
-    //   product_id: annodized_metal_chair.id,
-    //   user_id: grimlock.id,
-    //   comment: "This makes an acceptable cat throne.",
-    //   rating: 3,
-    // }),
-    // createReview({
-    //   product_id: annodized_metal_table.id,
-    //   user_id: evan.id,
-    //   comment:
-    //     "My mom likes how easy this table is to clean... and I like to make messes!",
-    //   rating: 4,
-    // }),
-    // createReview({
-    //   product_id: annodized_metal_table.id,
-    //   user_id: chelsea.id,
-    //   comment: "We got a second one because it works for my crazy toddler.",
-    //   rating: 5,
-    // }),
+    createReview({
+      product_id: annodized_metal_chair.id,
+      user_id: david.id,
+      comment: "Loved the shiny finish on this chair.",
+      rating: 5,
+    }),
+    createReview({
+      product_id: annodized_metal_chair.id,
+      user_id: grimlock.id,
+      comment: "This makes an acceptable cat throne.",
+      rating: 3,
+    }),
+    createReview({
+      product_id: annodized_metal_table.id,
+      user_id: evan.id,
+      comment:
+        "My mom likes how easy this table is to clean... and I like to make messes!",
+      rating: 4,
+    }),
+    createReview({
+      product_id: annodized_metal_table.id,
+      user_id: chelsea.id,
+      comment: "We got a second one because it works for my crazy toddler.",
+      rating: 5,
+    }),
   ]);
 };
 
