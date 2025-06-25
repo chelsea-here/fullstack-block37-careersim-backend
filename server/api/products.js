@@ -1,7 +1,8 @@
 const express = require("express");
 const app = express.Router();
 const { fetchProducts, fetchProduct } = require("../db/products");
-const { fetchReviews, fetchReview } = require("../db/reviews");
+const { fetchReviews, fetchReview, createReview } = require("../db/reviews");
+const { isLoggedIn } = require("./middleware");
 
 // REQUIRED ROUTES //
 // POST /api/products/:productId/reviews 🔒
@@ -36,6 +37,17 @@ app.get("/:productId/reviews/:reviewId", async (req, res, next) => {
   try {
     const { productId, reviewId } = req.params;
     res.send(await fetchReview(productId, reviewId));
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.post("/:productId/reviews", isLoggedIn, async (req, res, next) => {
+  try {
+    const response = res.send(
+      await createReview({ product_id: req.params.productId, ...req.body })
+    );
+    return response.rows;
   } catch (error) {
     next(error);
   }

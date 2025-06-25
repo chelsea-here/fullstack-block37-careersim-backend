@@ -18,6 +18,16 @@ const createReview = async (review) => {
   return response.rows[0];
 };
 
+// const createFavorite = async (favorite) => {
+//     const SQL = `
+//         INSERT INTO favorites(id, product_id, user_id)
+//         VALUES ($1, $2, $3)
+//         RETURNING *
+//     `
+//     const response = await client.query(SQL, [uuidv4(), favorite.product_id, favorite.user_id])
+//     return response.rows[0]
+// }
+
 const fetchReviews = async (productId) => {
   const SQL = `
   SELECT * 

@@ -41,21 +41,21 @@
 
 ## Required routes:
 
-- POST /api/auth/register
+- POST /api/auth/register <---completed and tested ----->
 
-- POST /api/auth/login
+- POST /api/auth/login <---completed and tested ----->
 
-- GET /api/auth/me 🔒
+- GET /api/auth/me 🔒 <---completed and tested ----->
 
-- GET /api/items
+- GET /api/items <---completed and tested ----->
 
-- GET /api/items/:itemId
+- GET /api/items/:itemId <---completed and tested ----->
 
-- GET /api/items/:itemId/reviews
+- GET /api/items/:itemId/reviews <---completed and tested ----->
 
-- GET /api/items/:itemId/reviews/:reviewId
+- GET /api/items/:itemId/reviews/:reviewId <---completed and tested ----->
 
-- POST /api/items/:itemId/reviews 🔒
+- POST /api/items/:itemId/reviews 🔒 <---completed and tested ----->
 
 - GET /api/reviews/me 🔒
 
