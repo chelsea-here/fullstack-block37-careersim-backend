@@ -28,7 +28,18 @@ const fetchReviews = async (productId) => {
   return response.rows;
 };
 
+const fetchReview = async (productId, reviewId) => {
+  const SQL = `
+  SELECT * 
+  FROM reviews
+  WHERE product_id = $1 and id = $2
+  `;
+  const response = await client.query(SQL, [productId, reviewId]);
+  return response.rows[0];
+};
+
 module.exports = {
   createReview,
   fetchReviews,
+  fetchReview,
 };
