@@ -23,10 +23,21 @@ const fetchProducts = async () => {
     `;
   const response = await client.query(SQL);
   return response.rows;
-  ß;
+};
+
+//NOT SURE IF THIS IS NECESSARY - THEY SHOULD BE ABLE TO SEARCH BY SETTING UP ROUTES ON THE FRONT END
+const fetchProduct = async (productId) => {
+  const SQL = `
+    SELECT *
+    FROM products
+    WHERE id = $1
+    `;
+  const response = await client.query(SQL, [productId]);
+  return response.rows[0];
 };
 
 module.exports = {
   createProduct,
   fetchProducts,
+  fetchProduct,
 };

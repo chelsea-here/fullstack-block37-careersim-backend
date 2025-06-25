@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "JWT=myPassword nodemon server"
+    "start:dev": "JWT=myPassword nodemon server",
+    "start:dev:sync": "SYNC=TRUE nodemon server"
   },
   "keywords": [],
   "author": "",
