@@ -1,18 +1,21 @@
 const express = require("express");
 const app = express.Router();
 const { authenticate } = require("../db/auth");
+const { createUser } = require("../db/users");
+const { isLoggedIn } = require("./middleware");
 
 // REQUIRED ROUTES //
 // - POST /api/auth/register
 // - POST /api/auth/login
 // - GET /api/auth/me 🔒
 
-// app.post("/login", async (req, res, next) => {
-//   try {
-//   } catch (error) {
-//     next(error);
-//   }
-// });
+app.post("/register", async (req, res, next) => {
+  try {
+    res.send(await createUser(req.body));
+  } catch (error) {
+    next(error);
+  }
+});
 
 app.post("/login", async (req, res, next) => {
   try {
@@ -22,3 +25,13 @@ app.post("/login", async (req, res, next) => {
     next(error);
   }
 });
+
+app.get("/me", isLoggedIn, async (req, res, next) => {
+  try {
+    res.send(req.user);
+  } catch (error) {
+    next(error);
+  }
+});
+
+module.exports = app;

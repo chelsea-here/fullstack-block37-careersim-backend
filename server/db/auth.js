@@ -26,3 +26,28 @@ const authenticate = async (credentials) => {
   const token = await jwt.sign({ id: response.rows[0].id }, process.env.JWT);
   return { token };
 };
+
+const findUserByToken = async (token) => {
+  try {
+    const payload = await jwt.verify(token, process.env.JWT);
+    const SQL = `
+    SELECT id, username
+    FROM users
+    WHERE $1 = id;
+    `;
+    const response = await client.query(SQL, [payload.id]);
+    if (!response.rows.length) {
+      const error = "bad credentials";
+      error.status = 401;
+      throw error;
+    }
+    return response.rows[0];
+  } catch (error) {
+    console.log(error);
+    const er = "bad token";
+    er.status = 401;
+    throw error;
+  }
+};
+
+module.exports = { authenticate, findUserByToken };
