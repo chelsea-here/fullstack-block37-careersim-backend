@@ -2,6 +2,8 @@
 
 ## database schema located here: https://excalidraw.com/#json=ht3NqlA9SXgEqEuei1rNQ,XcbbS4wNxKbO4mmmRTKpLQ
 
+## project management / kanban : https://github.com/users/chelsea-here/projects/6
+
 ## Overview
 
 - In this Career Simulation, Calliope asks you to create the back end of a review site for one of Fullstack Solutions' clients. After the back end has been completed, the client will review and provide feedback for improvement before starting the front end at a later time.
@@ -41,21 +43,21 @@
 
 ## Required routes:
 
-- POST /api/auth/register <---completed and tested ----->
+- POST /api/auth/register
 
-- POST /api/auth/login <---completed and tested ----->
+- POST /api/auth/login
 
-- GET /api/auth/me 🔒 <---completed and tested ----->
+- GET /api/auth/me 🔒
 
-- GET /api/items <---completed and tested ----->
+- GET /api/items
 
-- GET /api/items/:itemId <---completed and tested ----->
+- GET /api/items/:itemId
 
-- GET /api/items/:itemId/reviews <---completed and tested ----->
+- GET /api/items/:itemId/reviews
 
-- GET /api/items/:itemId/reviews/:reviewId <---completed and tested ----->
+- GET /api/items/:itemId/reviews/:reviewId
 
-- POST /api/items/:itemId/reviews 🔒 <---completed and tested ----->
+- POST /api/items/:itemId/reviews 🔒
 
 - GET /api/reviews/me 🔒
 

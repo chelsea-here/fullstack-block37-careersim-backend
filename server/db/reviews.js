@@ -18,16 +18,6 @@ const createReview = async (review) => {
   return response.rows[0];
 };
 
-// const createFavorite = async (favorite) => {
-//     const SQL = `
-//         INSERT INTO favorites(id, product_id, user_id)
-//         VALUES ($1, $2, $3)
-//         RETURNING *
-//     `
-//     const response = await client.query(SQL, [uuidv4(), favorite.product_id, favorite.user_id])
-//     return response.rows[0]
-// }
-
 const fetchReviews = async (productId) => {
   const SQL = `
   SELECT * 
@@ -48,8 +38,44 @@ const fetchReview = async (productId, reviewId) => {
   return response.rows[0];
 };
 
+const fetchUserReviews = async (user) => {
+  const SQL = `
+  SELECT * 
+  FROM reviews
+  WHERE user_id = $1`;
+  const response = await client.query(SQL, [user.id]);
+  return response.rows;
+};
+
+const updateReview = async (review) => {
+  const SQL = `
+    UPDATE reviews
+    SET rating = $1, comment = $2
+    WHERE id = $3 AND user_id = $4
+    RETURNING *;
+  `;
+  const response = await client.query(SQL, [
+    review.rating,
+    review.comment,
+    review.id,
+    review.user_id,
+  ]);
+  return response.rows[0];
+};
+
+const destroyReview = async (review) => {
+  const SQL = `
+    DELETE FROM reviews
+    WHERE id = $1 and user_id = $2
+    `;
+  await client.query(SQL, [review.id, review.user_id]);
+};
+
 module.exports = {
   createReview,
   fetchReviews,
   fetchReview,
+  fetchUserReviews,
+  updateReview,
+  destroyReview,
 };

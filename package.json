@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "JWT=myPassword nodemon server",
-    "start:dev:sync": "SYNC=TRUE nodemon server"
+    "start:dev:sync": "SYNC=TRUE JWT=myPassword nodemon server"
   },
   "keywords": [],
   "author": "",
