@@ -3,11 +3,6 @@ const app = express.Router();
 const { updateReview, destroyReview } = require("../db/reviews");
 const { isLoggedIn } = require("./middleware");
 
-// REQUIRED ROUTES //
-// PUT /api/users/:userId/reviews/:reviewId 🔒
-
-// DELETE /api/users/:userId/reviews/:reviewId 🔒
-
 app.put("/:userId/reviews/:reviewId", isLoggedIn, async (req, res, next) => {
   try {
     res.send(

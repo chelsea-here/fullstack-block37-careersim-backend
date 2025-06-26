@@ -4,11 +4,6 @@ const { authenticate } = require("../db/auth");
 const { createUser } = require("../db/users");
 const { isLoggedIn } = require("./middleware");
 
-// REQUIRED ROUTES //
-// - POST /api/auth/register
-// - POST /api/auth/login
-// - GET /api/auth/me 🔒
-
 app.post("/register", async (req, res, next) => {
   try {
     res.send(await createUser(req.body));

@@ -4,9 +4,6 @@ const { fetchProducts, fetchProduct } = require("../db/products");
 const { fetchReviews, fetchReview, createReview } = require("../db/reviews");
 const { isLoggedIn } = require("./middleware");
 
-// REQUIRED ROUTES //
-// POST /api/products/:productId/reviews 🔒
-
 app.get("/", async (req, res, next) => {
   try {
     res.send(await fetchProducts());
